@@ -2,7 +2,6 @@ function calculateYears(principal, interest, tax, desired) {
     if (principal === desired) return 0;
     var accumulated = principal;
     var count = 0;
-    console.log("arguments: " + principal + "," + interest + "," + tax + "," + desired);
     while (accumulated <= desired) {
         count++;
         accumulated *= (1 + interest - interest * tax);
@@ -86,3 +85,10 @@ function cakes(recipe,ingredients) {
     }
     return num.reduce((a, b) => Math.min(a,b));
 }
+
+function add(n) {
+    var val = x => add(n + x);
+    val.valueOf = () => n; 
+    return val;
+}
+
