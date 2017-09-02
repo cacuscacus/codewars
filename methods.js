@@ -32,14 +32,13 @@ function getMiddle(string) {
 }
 
 function splitString(str) {
-    var chars = str.split('');
-    var newArr = [];
-    chars = (chars.length & 1) ? chars.concat("_") : chars;
-    for (var i = 0; i < chars.length; i++) {
-        newArr.push(chars[i].concat(chars[i + 1]));
-        i++;
-    }
-    return newArr;
+  var newArr = [];
+  str += "_";
+  for (var i=0;i<str.length-1;i++) {
+      newArr.push(str[i]+str[i+1]);
+      i++;
+  }
+  return newArr;
 }
 
 function whichAreIn(a1, a2) {
@@ -77,4 +76,13 @@ function tripleDouble(num1, num2) {
         }
     }
     return 0;
+}
+    
+function cakes(recipe,ingredients) {
+    var num = [];
+    for (key in recipe) {
+        if (!ingredients[key]) return 0;
+        num.push(Math.floor(ingredients[key]/recipe[key]));
+    }
+    return num.reduce((a, b) => Math.min(a,b));
 }
